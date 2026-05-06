@@ -111,7 +111,6 @@ class CalBot(commands.Bot):
             print(f"❌ Không tìm thấy channel {CHANNEL_ID}")
             return
 
-        await channel.send("@everyone")
         if advance:
             date = await advance_world_date()
         else:
@@ -137,7 +136,8 @@ class CalBot(commands.Bot):
         embed.set_footer(text="WorldRP 1960s  ·  Mỗi ngày thực = 2 tháng trong world")
         embed.timestamp = datetime.utcnow()
 
-        await channel.send(embed=embed)
+        # Đã thêm nội dung @everyone vào đây
+        await channel.send(content="@everyone", embed=embed)
 
 bot = CalBot()
 
