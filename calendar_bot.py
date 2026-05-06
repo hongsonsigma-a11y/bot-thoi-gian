@@ -111,6 +111,7 @@ class CalBot(commands.Bot):
             print(f"❌ Không tìm thấy channel {CHANNEL_ID}")
             return
 
+        await channel.send("@everyone")
         if advance:
             date = await advance_world_date()
         else:
